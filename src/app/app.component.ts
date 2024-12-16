@@ -4,16 +4,17 @@ import { RouterOutlet } from '@angular/router';
 import { NavComponent } from "./Components/nav/nav.component";
 import { CommonModule } from '@angular/common';
 import { PhotoComponent } from "./Components/photo/photo.component";
-import {  DataImage } from "./Interfaces/dataImage"
-import { HttpClientModule } from '@angular/common/http';
+import { DataImage } from "./Interfaces/dataImage"
 import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from './Components/pagination/pagination.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavComponent, CommonModule, PhotoComponent, HttpClientModule, FormsModule],
+  imports: [RouterOutlet, NavComponent, CommonModule, PhotoComponent, FormsModule, PaginationComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: true,
 })
 
 export class AppComponent {
@@ -56,7 +57,6 @@ export class AppComponent {
     this.loading = true;
     this.error = null;
     if(reset) this.currentPage = 1
-    console.log(this.searchQuery, "hola")
     this.imagesPixabayService.searchImages(this.searchQuery, this.currentPage).subscribe({
       next: (response) => {
         this.pixabayData = response.data;

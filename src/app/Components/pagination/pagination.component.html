@@ -1,0 +1,7 @@
+<div class="pagination-container d-flex justify-content-center align-items-center gap-3 mt-3 mb-5">
+    <button class="btn btn-secondary" (click)="onPreviousPage()"
+      [disabled]="currentPage === 1 || loading">Anterior</button>
+    <span class="current-page">Página {{ currentPage }}</span>
+    <button class="btn btn-secondary" (click)="onNextPage()"
+      [disabled]="dataLength < 21 || loading">Siguiente</button>
+  </div>

@@ -4,38 +4,32 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
       <div class="search-bar d-flex align-items-center gap-2">
-        <input
-          type="text"
-          [(ngModel)]="searchQuery"
-          class="form-control flex-grow-1"
-          placeholder="Buscar imágenes"
-        />
+        <input type="text" [(ngModel)]="searchQuery" class="form-control flex-grow-1" placeholder="Buscar imágenes" />
         <button class="btn btn-primary w-auto" (click)="searchImages(true)">Buscar</button>
       </div>
     </div>
   </div>
 </div>
 
-
-<div *ngIf="!loading && pixabayData.length === 0" class="text-center mt-4">
+@if(!loading && pixabayData.length === 0){
+<div class="text-center mt-4">
   <p class="text-muted">No se encontraron resultados para tu búsqueda.</p>
 </div>
-
-
+}@else {
 <div class="container mt-4">
   <div class="image-container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let img of pixabayData">
+      @for(img of pixabayData; track $index){
+      <div class="col-md-4">
         <app-photo [photo]="img"></app-photo>
       </div>
+      }
     </div>
   </div>
-
-  <div class="pagination-container d-flex justify-content-center align-items-center gap-3 mt-3 mb-5">
-    <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
-    <span class="current-page">Página {{ currentPage }}</span>
-    <button class="btn btn-secondary" (click)="nextPage()">Siguiente</button>
-  </div>
+  @if(pixabayData.length >= 21){
+    <app-pagination [currentPage]="currentPage" [loading]="loading" [dataLength]="pixabayData.length" (nextPage)="nextPage()" (previousPage)="previousPage()"></app-pagination>
+  }
 </div>
+}
 
 <router-outlet></router-outlet>
