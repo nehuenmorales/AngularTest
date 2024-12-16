@@ -1,59 +1,36 @@
-# TestAngular
+# Buscador de Imágenes
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Este proyecto es un buscador de imágenes desarrollado en **Angular 19**, que consume la API externa de **Pixabay** para buscar y mostrar imágenes en la interfaz de usuario.
 
-## Development server
+## Requisitos Previos
 
-To start a local development server, run:
+Asegúrate de tener instalado lo siguiente antes de ejecutar el proyecto:
 
-```bash
-ng serve
-```
+- **Node.js**: Asegúrate de tener Node.js instalado en tu máquina. Puedes verificar la instalación con el comando:
+  ```bash
+  node -v
+  ```
+- **Angular CLI**: Si aún no tienes Angular CLI instalado, puedes instalarlo globalmente con:
+  ```bash
+  npm install -g @angular/cli
+  ```
+## Instalación y Ejecución en Entorno Local
+Sigue estos pasos para ejecutar el proyecto localmente:
+1. Clona el repositorio a tu máquina local:
+   ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd <NOMBRE_DEL_DIRECTORIO_DEL_PROYECTO>
+    ```
+2. Instala las dependencias del proyecto. Abre una terminal en la raíz del proyecto y ejecuta:
+  ```bash
+    npm install
+  ```
+3. Levanta el servidor de desarrollo. Una vez que las dependencias estén instaladas, ejecuta el siguiente comando para iniciar el servidor:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+   ```bash
+    ng serve
+     ```
+Este comando levantará el proyecto en http://localhost:4200. Abre tu navegador y ve a esa URL para ver el buscador de imágenes.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
