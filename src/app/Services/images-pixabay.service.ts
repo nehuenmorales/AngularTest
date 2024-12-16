@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  DataImage } from '../Interfaces/data-image';
+import {  DataImage } from '../Interfaces/dataImage';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { ApiResponse } from '../Interfaces/apiResponse';
 
