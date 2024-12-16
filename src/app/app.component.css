@@ -1,3 +1,23 @@
 .search-container {
     margin-top: 6rem;
   }
+
+
+.image-container {
+  max-height: 70vh; 
+  overflow-x: hidden;
+  overflow-y: auto; 
+  border: 1px solid #ccc; 
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+
+.pagination-container {
+  font-size: 1.2rem;
+}
+
+.current-page {
+  font-weight: bold;
+}

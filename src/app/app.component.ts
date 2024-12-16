@@ -23,6 +23,7 @@ export class AppComponent {
   loading: boolean = false;
   error: string | null = null;
   searchQuery: string = '';
+  currentPage: number = 1;
 
   constructor( private imagesPixabayService: ImagesPixabayService ){
   }
@@ -35,8 +36,7 @@ export class AppComponent {
   loadImages(){
     this.loading = true;
     this.error = null;
-
-    this.imagesPixabayService.getAllImages().subscribe(
+    this.imagesPixabayService.getAllImages(this.currentPage).subscribe(
       {
         next: (response) => {
           this.pixabayData = response.data;
@@ -52,11 +52,12 @@ export class AppComponent {
 
 
 
-  searchImages() {
+  searchImages(reset : boolean) {
     this.loading = true;
     this.error = null;
-
-    this.imagesPixabayService.searchImages(this.searchQuery).subscribe({
+    if(reset) this.currentPage = 1
+    console.log(this.searchQuery, "hola")
+    this.imagesPixabayService.searchImages(this.searchQuery, this.currentPage).subscribe({
       next: (response) => {
         this.pixabayData = response.data;
         this.loading = false;
@@ -66,5 +67,23 @@ export class AppComponent {
         this.loading = false;
       },
     });
+  }
+
+
+
+  nextPage() {
+    this.currentPage++;
+    if(this.searchQuery.trim() !== ''){
+     this.searchImages(false);
+    }  
+    else this.loadImages();
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      if(this.searchQuery.trim() !== '') this.searchImages(false);
+      else this.loadImages();
+    }
   }
 }
